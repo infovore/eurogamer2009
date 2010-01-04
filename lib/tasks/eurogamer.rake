@@ -32,7 +32,7 @@ namespace :eurogamer do
             platform = ""
           end
           title = row.css("th a:nth-child(1)").inner_text
-          url = "http://eurogamer.net" + row.css("th a:nth-child(1)").attribute("href").to_s
+          url = "http://eurogamer.net/" + row.css("th a:nth-child(1)").attribute("href").to_s
           reviewer = row.css("th a:nth-child(2)").inner_text
           score = row.css("td.score big").inner_text
         
