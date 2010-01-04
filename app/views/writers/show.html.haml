@@ -1,3 +1,5 @@
+%h1= @writer.name
+
 %table
   %thead
     %tr
@@ -7,7 +9,7 @@
       %th Reviewer
       %th Score
   %tbody
-    - for review in @reviews
+    - for review in @writer.reviews
       %tr
         %td= review.written_on
         %td= link_to review.title, review.url
