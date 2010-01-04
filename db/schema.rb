@@ -9,18 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104212713) do
+ActiveRecord::Schema.define(:version => 20100104212815) do
 
   create_table "reviews", :force => true do |t|
     t.string   "title"
     t.string   "abstract"
-    t.string   "writer"
     t.string   "url"
     t.string   "platform"
     t.date     "written_on"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "writer_id"
   end
 
   create_table "writers", :force => true do |t|
