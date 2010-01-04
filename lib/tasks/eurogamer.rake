@@ -4,6 +4,10 @@ require 'nokogiri'
 namespace :eurogamer do
   desc "Get scores from Eurogamer.net"
   task :get_scores => :environment do
+    puts "Importing reviews..."
+    ActiveRecord::Base.connection.execute("TRUNCATE TABLE reviews")
+    reviewcount = 0
+    
     # yes, I got these by hand. These are all the urls with a 2009 review on.
     urls = "http://www.eurogamer.net/archive.php?sort=reversechrono&platform=&type=review&author=&start=0",
            "http://www.eurogamer.net/archive.php?sort=reversechrono&platform=&type=review&author=&start=50",
@@ -28,13 +32,18 @@ namespace :eurogamer do
             platform = ""
           end
           title = row.css("th a:nth-child(1)").inner_text
-          url = row.css("th a:nth-child(1)").attribute("href").to_s
+          url = "http://eurogamer.net" + row.css("th a:nth-child(1)").attribute("href").to_s
           reviewer = row.css("th a:nth-child(2)").inner_text
           score = row.css("td.score big").inner_text
         
-          puts "(#{date}) #{title} (#{platform}): #{score} [#{reviewer}] [http://eurogamer.net/#{url}]"
+          # puts "(#{date}) #{title} (#{platform}): #{score} [#{reviewer}] [#{url}]"
+          Review.create(:written_on => date, :title => title, :platform => platform, :score => score, :writer => reviewer, :url => url)
+          print "."
+          reviewcount += 1
         end
       end
     end
+    puts
+    puts "Imported #{reviewcount} reviews."
   end
 end
