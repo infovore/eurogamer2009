@@ -37,7 +37,11 @@ namespace :eurogamer do
           score = row.css("td.score big").inner_text
         
           # puts "(#{date}) #{title} (#{platform}): #{score} [#{reviewer}] [#{url}]"
-          Review.create(:written_on => date, :title => title, :platform => platform, :score => score, :writer => reviewer, :url => url)
+          writer = Writer.find(:first, :conditions => {:name => reviewer})
+          if !writer
+            writer = Writer.create(:name => reviewer)
+          end
+          Review.create(:written_on => date, :title => title, :platform => platform, :score => score, :writer => writer, :url => url)
           print "."
           reviewcount += 1
         end
