@@ -3,8 +3,10 @@
     %tr
       %th Writer
       %th Reviews
+      %th Average score
   %tbody
     - for writer in @writers
       %tr
         %td= link_to writer.name, writer_path(writer)
         %td= writer.reviews.size
+        %td= writer.average_score
