@@ -1,3 +1,9 @@
+%h1
+  = @reviews.size
+  games scored
+  = @score
+  in 2009:
+  
 %table
   %thead
     %tr
@@ -13,4 +19,5 @@
         %td= link_to review.title, review.url
         %td= review.platform
         %td= link_to review.writer.name, writer_path(review.writer)
-        %td= link_to review.score, "/scores/#{review.score}"
+        %td
+          %b= review.score
