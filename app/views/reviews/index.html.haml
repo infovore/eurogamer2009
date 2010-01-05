@@ -1,4 +1,4 @@
-%table
+%table.norm
   %thead
     %tr
       %th Date
@@ -7,10 +7,4 @@
       %th Reviewer
       %th Score
   %tbody
-    - for review in @reviews
-      %tr
-        %td= review.written_on
-        %td= link_to review.title, review.url
-        %td= review.platform
-        %td= link_to review.writer.name, writer_path(review.writer)
-        %td= link_to review.score, "/scores/#{review.score}"
+    = render :partial => "reviews/review", :collection => @reviews
