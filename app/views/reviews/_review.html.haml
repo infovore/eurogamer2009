@@ -3,4 +3,5 @@
   %td= link_to review.title, review.url
   %td.center= review.platform
   %td= link_to review.writer.name, writer_path(review.writer)
-  %td.center= link_to review.score, "/scores/#{review.score}"
+  - if review.score
+    %td.center= link_to review.score, "/scores/#{review.score}"
