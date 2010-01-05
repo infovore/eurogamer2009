@@ -1,0 +1,7 @@
+table.norm td, table.norm th {
+  padding: 2px;
+}
+
+td.center {
+  text-align: center;
+}
