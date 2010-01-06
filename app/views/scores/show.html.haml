@@ -1,4 +1,9 @@
-%h1
+- content_for :title do
+  Games scoring
+  = @score
+  \: Scores : 
+
+%h2
   = @reviews.size
   games scored
   = @score

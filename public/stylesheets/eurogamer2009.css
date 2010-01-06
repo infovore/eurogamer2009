@@ -5,3 +5,8 @@ table.norm td, table.norm th {
 td.center {
   text-align: center;
 }
+
+td.big {
+  font-weight: bold;
+  font-size: 150%;
+}

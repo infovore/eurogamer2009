@@ -1,4 +1,8 @@
-%h1= @writer.name
+- content_for :title do
+  = @writer.name
+  \: Writers : 
+
+%h2= @writer.name
 
 %table.norm
   %thead

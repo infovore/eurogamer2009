@@ -1,0 +1,16 @@
+- content_for :title do
+  Scores : 
+
+%h2 Scores
+
+%table
+  %thead
+    %tr
+      %th Score
+      %th Number of games receiving score
+  %tbody
+    - @counts.each_with_index do |count,i|
+      - score = i+ 1
+      %tr
+        %td.center.big= link_to score, "/scores/#{score}"
+        %td= count
