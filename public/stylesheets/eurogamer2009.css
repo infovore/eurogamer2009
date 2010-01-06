@@ -1,3 +1,8 @@
+.cleardiv {
+  display: block;
+  clear: both;
+}
+
 table.norm td, table.norm th {
   padding: 2px;
 }
@@ -9,4 +14,49 @@ td.center {
 td.big {
   font-weight: bold;
   font-size: 150%;
+}
+
+h2 {
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 300%;
+  border-bottom: 1px solid #888;
+}
+
+.top {
+  background: black;
+  color: white;
+  width: 100%;
+  clear: both;
+}
+
+.top h1 {
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 200%;
+  margin: 0;
+  color: white; 
+}
+
+.top p {
+  margin: 0;
+}
+
+.top a {
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 200%;
+  margin: 0;
+  color: white; 
+}
+
+.top a:link, .top a:visited {
+  color: white;
+}
+
+.top a:hover {
+  color: red;
 }
