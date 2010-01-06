@@ -4,6 +4,13 @@
 
 %h2= @writer.name
 
+%p
+  %b
+    = @writer.name
+  reviewed
+  %b= "#{pluralize(@writer.reviews.size, "game")}."
+  = "Their average score was <b>#{@writer.average_score}</b>; their lowest score was <b>#{@writer.min_score}</b> and their highest was <b>#{@writer.max_score}</b>."
+
 %table.norm
   %thead
     %tr
