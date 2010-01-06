@@ -50,4 +50,13 @@ namespace :eurogamer do
     puts
     puts "Imported #{reviewcount} reviews."
   end
+  
+  desc "Generate slugs for writers"
+  task :generate_writer_slugs => :environment do
+    Writer.all.each do |writer|
+      slug = writer.name.downcase.gsub(" ", "-")
+      writer.slug = slug
+      writer.save
+    end
+  end
 end

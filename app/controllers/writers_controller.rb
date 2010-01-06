@@ -4,6 +4,6 @@ class WritersController < ApplicationController
   end
   
   def show
-    @writer = Writer.find(params[:id])
+    @writer = Writer.find(:first, :conditions => {:slug => params[:id]})
   end
 end
