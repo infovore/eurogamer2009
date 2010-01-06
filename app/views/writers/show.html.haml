@@ -2,21 +2,19 @@
   = @writer.name
   \: Writers : 
 
-%h2= @writer.name
-
 %table.writer
-  %thead
-    %tr
-      %th Reviews
-      %th Average score
-      %th Minimum score
-      %th.last Maximum score
-  %tbody
-    %tr
-      %td= @writer.reviews.size
-      %td= @writer.average_score
-      %td= @writer.min_score
-      %td.last= @writer.max_score
+  %tr
+    %th.writer{:rowspan => 2}
+      %h2= @writer.name
+    %th Reviews
+    %th Average score
+    %th Minimum score
+    %th.last Maximum score
+  %tr
+    %td= @writer.reviews.size
+    %td= @writer.average_score
+    %td= @writer.min_score
+    %td.last= @writer.max_score
 
 %table.norm
   %thead

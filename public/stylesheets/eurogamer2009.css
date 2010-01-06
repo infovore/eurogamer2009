@@ -66,9 +66,10 @@ table.writer {
   font-family: "league-gothic-1","league-gothic-2",sans-serif;
   font-weight: normal;
   text-transform: uppercase; 
+  margin: 10px 0;
 }
 
-table.writer thead th {
+table.writer th {
   font-size: 200%;
   color: #888;
   text-align: center;
@@ -78,17 +79,30 @@ table.writer thead th {
   border-right: 1px solid #ccc;
 }
 
-table.writer thead th.last {
+table.writer th.writer {
+  vertical-align: middle;
+  border-bottom: none;
+  color: black;
+  font-size: 500%;
+}
+
+table.writer th.writer h2 {
+  border-bottom: none;
+  font-size: 100%;
+  margin: 0;
+}
+
+table.writer th.last {
   border-right: none;
 }
 
-table.writer tbody td {
+table.writer td {
   font-size: 400%;
   text-align: center;
   padding: 0 10px;
   border-right: 1px solid #ccc;
 }
 
-table.writer tbody td.last {
+table.writer td.last {
   border-right: none;
 }
