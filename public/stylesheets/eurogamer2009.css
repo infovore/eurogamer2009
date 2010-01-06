@@ -22,6 +22,7 @@ h2 {
   text-transform: uppercase;
   font-size: 300%;
   border-bottom: 1px solid #888;
+  padding: 0 10px;
 }
 
 .top {
@@ -59,4 +60,35 @@ h2 {
 
 .top a:hover {
   color: red;
+}
+
+table.writer {
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase; 
+}
+
+table.writer thead th {
+  font-size: 200%;
+  color: #888;
+  text-align: center;
+  font-weight: normal;
+  padding: 0 10px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+table.writer thead th.last {
+  border-right: none;
+}
+
+table.writer tbody td {
+  font-size: 400%;
+  text-align: center;
+  padding: 0 10px;
+  border-right: 1px solid #ccc;
+}
+
+table.writer tbody td.last {
+  border-right: none;
 }
