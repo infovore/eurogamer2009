@@ -12,9 +12,9 @@
     %th.last Maximum score
   %tr
     %td= @writer.reviews.size
-    %td= "%0.3f" % @writer.average_score
-    %td= @writer.min_score
-    %td.last= @writer.max_score
+    %td.score= "%0.3f" % @writer.average_score
+    %td.score= @writer.min_score
+    %td.last.score= @writer.max_score
 
 %table.norm
   %thead
