@@ -173,6 +173,10 @@ table.scores td {
   padding: 0 10px;
 }
 
+table.scores td.score a {
+  font-weight: normal;
+}
+
 table.scores td.score a:link, table.scores td.score a:visited {
   color: #207ef9;
   text-decoration: none;
