@@ -16,6 +16,6 @@
       %tr
         %td= link_to writer.name, writer_path(writer)
         %td= writer.reviews.size
-        %td.score= "%0.3f" % writer.average_score
+        %td.score= "%0.3f" % writer.average_score if writer.average_score
         %td.score= writer.min_score
         %td.score.last= writer.max_score

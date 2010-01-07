@@ -34,7 +34,12 @@ table.norm td.score {
   font-weight: normal;
   text-transform: uppercase;
   font-size: 150%;
+  color: #207ef9;
 
+}
+
+table.norm td.score a {
+  font-weight: normal;
 }
 
 table.norm td.score a:link, table.norm td.score a:visited {
