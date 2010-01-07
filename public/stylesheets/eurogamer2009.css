@@ -96,10 +96,12 @@ h2 {
 
 .top a:link, .top a:visited {
   color: white;
+  text-decoration: none;
 }
 
 .top a:hover {
   color: red;
+  text-decoration: underline;
 }
 
 table.writer {
@@ -177,6 +179,16 @@ table.scores td.score a:link, table.scores td.score a:visited {
 }
 
 table.scores td.score a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #207ef9;
+} 
+
+a:hover {
   color: red;
   text-decoration: underline;
 }
