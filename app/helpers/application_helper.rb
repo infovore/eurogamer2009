@@ -4,4 +4,8 @@ module ApplicationHelper
     "<span class='cleardiv'><!-- clear --></span>"
   end
   
+  def format_date(date)
+    date.strftime("%d %B %Y")
+  end
+  
 end

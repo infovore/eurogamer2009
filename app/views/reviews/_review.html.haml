@@ -1,7 +1,7 @@
 %tr
-  %td= review.written_on
+  %td= format_date(review.written_on)
   %td= link_to review.title, review.url
   %td.center= review.platform
   %td= link_to review.writer.name, writer_path(review.writer)
   - if review.score
-    %td.center= link_to review.score, "/scores/#{review.score}"
+    %td.last.score= link_to review.score, "/scores/#{review.score}"

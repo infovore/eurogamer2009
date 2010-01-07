@@ -3,8 +3,48 @@
   clear: both;
 }
 
-table.norm td, table.norm th {
-  padding: 2px;
+table.norm {
+  width: 100%;
+}
+
+table.norm th, table.norm td {
+  border-bottom: 1px solid #888;
+  border-right: 1px solid #888;
+  padding: 5px;
+}
+
+table.norm th {
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 150%;
+}
+
+table.norm th.last, table.norm td.last {
+  border-right: none;
+}
+
+table.norm tr.last td {
+  border-bottom: none;
+}
+
+table.norm td.score {
+  text-align: center;
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 150%;
+
+}
+
+table.norm td.score a:link, table.norm td.score a:visited {
+  text-decoration: none;
+  color: #207ef9;
+} 
+
+table.norm td.score a:hover {
+  color: red;
+  text-decoration: underline;
 }
 
 td.center {
