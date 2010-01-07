@@ -183,6 +183,10 @@ table.scores td.score a:hover {
   text-decoration: underline;
 }
 
+a {
+  font-weight: bold;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: #207ef9;
