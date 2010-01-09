@@ -16,4 +16,25 @@ class Writer < ActiveRecord::Base
   def max_score
     Review.maximum(:score, :conditions => {:writer_id => self})
   end
+  
+  def total_score
+    Review.sum(:score, :conditions => {:writer_id => self})
+  end
+  
+  def contribution
+    total_score.to_f / Review.sum(:score)
+  end
+  
+  def contribution_percentage
+    contribution * 100
+  end
+  
+  def deviance
+    average_score - Review.average(:score)
+  end
+  
+  def generosity
+    deviance * contribution_percentage
+  end
+  
 end

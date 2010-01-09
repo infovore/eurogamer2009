@@ -8,14 +8,21 @@
     %tr
       %th Writer
       %th Reviews
-      %th Average score
       %th Minimum score
-      %th.last Maximum score
+      %th Maximum score
+      %th Average score
+      %th Deviance
+      %th Contribution
+      %th.last Generosity
   %tbody
     - for writer in @writers
       %tr
         %td= link_to writer.name, writer_path(writer)
         %td= writer.reviews.size
-        %td.score= "%0.3f" % writer.average_score if writer.average_score
         %td.score= writer.min_score
-        %td.score.last= writer.max_score
+        %td.score= writer.max_score
+        %td.score= "%0.3f" % writer.average_score rescue ""
+        %td.score= writer.deviance rescue ""
+        %td.contribution= "%0.1f" % writer.contribution_percentage rescue ""
+        %td.contribution.last= "%0.1f" % writer.generosity rescue ""
+        
