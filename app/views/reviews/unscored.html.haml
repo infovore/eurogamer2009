@@ -1,0 +1,29 @@
+- content_for :title do
+  Unscored Reviews : 
+
+%h2 Reviews
+
+%p
+  The average score on Eurogamer in 2009 was
+  %b= Review.average(:score)
+
+%table.norm
+  %thead
+    %tr
+      %th Date
+      %th Game
+      %th Platform
+      %th Reviewer
+      %th.last Score
+  %tbody
+  - for review in @reviews
+    %tr
+      %td= format_date(review.written_on)
+      %td= link_to review.title, review.url
+      %td.center= review.platform
+      %td= link_to review.writer.name, writer_path(review.writer)
+      %td.last
+        - form_for(review) do |f|
+          = f.text_field :score, :class => "score"
+          = f.submit(">")
+        

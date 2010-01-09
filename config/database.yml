@@ -1,0 +1,6 @@
+development:
+  adapter: mysql
+  database: eurogamer2009_development
+  username: dbuser
+  password: dbp
+  host: localhost

@@ -213,3 +213,7 @@ a:hover {
   color: red;
   text-decoration: underline;
 }
+
+input.score {
+  width: 20px;
+}
