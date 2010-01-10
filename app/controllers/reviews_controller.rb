@@ -3,6 +3,11 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
   
+  def show
+    @review = Review.find(:first, :conditions => {:slug => params[:id]})
+  end
+  
+  
   def unscored
     @reviews = Review.find(:all, :conditions => {:score => nil})
   end

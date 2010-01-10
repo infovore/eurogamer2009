@@ -1,0 +1,18 @@
+%h2= @review.title
+
+%p
+  %b= @review.title
+  scored
+  %b= @review.score
+  which is
+  %b= @review.deviance
+  above/below the site average, and
+  %b= @review.writer_deviance
+  above/below the average of
+  = link_to @review.writer.name, writer_path(@review.writer)
+  
+%p= link_to "Read the review on Eurogamer.net", @review.url
+
+%p TODO: compare to metacritic
+
+%p= link_to "Back to all reviews", reviews_path
