@@ -1,6 +1,8 @@
 %tr
   %td= format_date(review.written_on)
-  %td= link_to review.title, review.url
+  %td
+    = link_to review.title, review_path(review)
+    = "[#{link_to ("eurogamer link", review.url)}]"
   %td.center= review.platform
   %td= link_to review.writer.name, writer_path(review.writer)
   - if review.score

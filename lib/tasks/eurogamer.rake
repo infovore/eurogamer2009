@@ -59,4 +59,13 @@ namespace :eurogamer do
       writer.save
     end
   end
+  
+  desc "Generate slugs for reviews"
+  task :generate_review_slugs => :environment do
+    Review.all.each do |review|
+      review.slug = review.to_slug
+      review.save
+      print "."
+    end
+  end
 end

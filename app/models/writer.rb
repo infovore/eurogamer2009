@@ -22,7 +22,7 @@ class Writer < ActiveRecord::Base
   end
   
   def contribution
-    total_score.to_f / Review.sum(:score)
+    reviews.count.to_f / Review.count(:all)
   end
   
   def contribution_percentage
