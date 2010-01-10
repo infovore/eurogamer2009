@@ -75,10 +75,10 @@
   %tbody
     = render :partial => "reviews/review", :collection => @writer.reviews
     
-.debug
-  - @writer.year_of_reviews.each do |week, reviews|
-    %h3= week
-    %ul
-      - for review in reviews
-        %li= review.title
-  
+/ .debug
+/   - @writer.year_of_reviews.each do |week, reviews|
+/     %h3= week
+/     %ul
+/       - for review in reviews
+/         %li= review.title
+/   
