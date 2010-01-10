@@ -22,7 +22,7 @@
         %td.score= writer.min_score
         %td.score= writer.max_score
         %td.score= "%0.3f" % writer.average_score rescue ""
-        %td.contribution= writer.deviance rescue ""
+        %td.contribution= "%0.3f" % writer.deviance rescue ""
         %td.contribution= "%0.1f" % writer.contribution_percentage rescue ""
         %td.score.last= "%0.1f" % writer.generosity rescue ""
         
