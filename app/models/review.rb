@@ -16,4 +16,8 @@ class Review < ActiveRecord::Base
   def writer_deviance
     score - writer.average_score
   end
+  
+  def week
+    written_on.strftime('%W').to_f.to_i
+  end
 end

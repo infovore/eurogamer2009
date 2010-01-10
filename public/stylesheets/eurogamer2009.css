@@ -217,3 +217,7 @@ a:hover {
 input.score {
   width: 20px;
 }
+
+div.graphs {
+  margin: 0 0 20px;
+}

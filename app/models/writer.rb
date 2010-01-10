@@ -37,4 +37,23 @@ class Writer < ActiveRecord::Base
     deviance * contribution_percentage
   end
   
+  def score_distribution
+    reviews.count(:all, :group => "score")
+  end
+  
+  def reviews_by_week
+    reviews.group_by(&:week).sort
+  end
+  
+  def year_of_reviews
+    # weeks = (1..52).to_a.map {|w| [w, []]}
+    year = Hash.new
+    (1..52).each {|w| year[w] = []}
+    
+    reviews_by_week.each do |week, reviews|
+      week = week.to_f.to_i
+      year[week] = reviews
+    end
+    year.sort
+  end
 end

@@ -1,3 +1,37 @@
+- content_for :javascript do
+  = javascript_include_tag "raphael-min", "g.raphael-min", "g.bar-min.js", "g.pie-min.js"
+  :javascript
+    $(document).ready(function() {
+      var paper = Raphael("review-graph", 400, 220);
+      paper.g.barchart(0,0, 400, 220, [[#{@writer.year_of_reviews.map {|week, reviews| (reviews.map {|r| r.score.to_i}.sum.to_f / (reviews.size > 0 ? reviews.size : 1)).to_f}.join(",")}]], 0, {type: "sharp"});
+      paper.g.axis(0,200,400,1,52,52,null,null,null,0)
+    
+    
+      var pies = new Array();
+      
+      var paper = Raphael("score-pie", 400, 220);
+      var pie = paper.g.piechart(120, 120, 80, [#{@writer.score_distribution.map {|s,c| c.to_i}.join(",")}], {legend: ['#{@writer.score_distribution.map {|s,c| 'Games scoring ' + s.to_s}.join("','")}']});
+      pies.push(pie);
+      
+      for(i=0;i<pies.length;i++) {
+        pies[i].hover(function () {
+          this.sector.stop();
+          this.sector.scale(1.1, 1.1, this.cx, this.cy);
+          if (this.label) {
+            this.label[0].stop();
+            this.label[0].scale(1.5);
+            this.label[1].attr({"font-weight": 800});
+          }
+        }, function () {
+          this.sector.animate({scale: [1, 1, this.cx, this.cy]}, 500, "bounce");
+          if (this.label) {
+            this.label[0].animate({scale: 1}, 500, "bounce");
+            this.label[1].attr({"font-weight": 400});
+          }
+        });
+      }
+    });
+
 - content_for :title do
   = @writer.name
   \: Writers : 
@@ -22,6 +56,14 @@
     %td= "%0.3f" % @writer.contribution
     %td.last= "%0.3f" % @writer.generosity
 
+.graphs
+  .grid_6.alpha
+    #score-pie
+  .grid_6.omega
+    #review-graph
+
+=cleardiv
+
 %table.norm
   %thead
     %tr
@@ -32,3 +74,11 @@
       %th.last Score
   %tbody
     = render :partial => "reviews/review", :collection => @writer.reviews
+    
+.debug
+  - @writer.year_of_reviews.each do |week, reviews|
+    %h3= week
+    %ul
+      - for review in reviews
+        %li= review.title
+  
