@@ -10,7 +10,7 @@
       var pies = new Array();
       
       var paper = Raphael("score-pie", 400, 220);
-      var pie = paper.g.piechart(120, 120, 80, [#{@writer.score_distribution.map {|s,c| c.to_i}.join(",")}], {legend: ['#{@writer.score_distribution.map {|s,c| c + ' games scoring ' + s.to_s}.join("','")}']});
+      var pie = paper.g.piechart(120, 120, 80, [#{@writer.score_distribution.map {|s,c| c.to_i}.join(",")}], {legend: ['#{@writer.score_distribution.map {|s,c| c.to_s + ' games scoring ' + s.to_s}.join("','")}']});
       pies.push(pie);
       
       for(i=0;i<pies.length;i++) {
