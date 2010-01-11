@@ -1,6 +1,6 @@
 class WritersController < ApplicationController
   def index
-    @writers = Writer.all
+    @writers = Writer.all.sort_by{|r| r.reviews.count}.reverse
   end
   
   def show
