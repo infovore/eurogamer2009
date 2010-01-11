@@ -1,16 +1,20 @@
-%h2= @review.title
+%table.writer
+  %tr
+    %th.writer{:rowspan => 2}
+      %h2= @review.title
+    %th Reviewed By
+    %th Score
+    %th Compared to EG average
+    %th Compared to Metacritic
+    %th.last Compared to writer's average
+  %tr
+    %td= link_to @review.writer.name, writer_path(@review.writer)
+    %td.score= link_to @review.score, "/scores/#{@review.score}"
+    %td= @review.score - Review.average(:score)
+    %td xx
+    %td.last= @review.score - @review.writer.average_score
 
-%p
-  %b= @review.title
-  scored
-  %b= @review.score
-  which is
-  %b= @review.deviance
-  above/below the site average, and
-  %b= @review.writer_deviance
-  above/below the average of
-  = link_to @review.writer.name, writer_path(@review.writer)
-  
+
 %p= link_to "Read the review on Eurogamer.net", @review.url
 
 %p TODO: compare to metacritic

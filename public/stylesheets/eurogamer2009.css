@@ -125,6 +125,10 @@ table.writer {
   width: 100%;
 }
 
+table.writer a {
+  font-weight: normal;
+}
+
 table.writer th {
   font-size: 150%;
   color: #888;
