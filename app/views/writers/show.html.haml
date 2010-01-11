@@ -55,7 +55,7 @@
   .grid_5.alpha
     #score-pie
   .grid_7.omega{:style => "padding-top: 20px"}
-    %img{:src => Gchart.line(:data => @writer.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :line_colors => "207ef9", :axis_with_labels => 'x', :axis_labels => ['Jan|Feb|Mar|Apr|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec','1|2|3|4|5|6|7|8|9|10'], :size => "540x200")}
+    %img{:src => Gchart.line(:data => @writer.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :line_colors => "207ef9", :axis_with_labels => 'x,y', :axis_labels => ['Jan|Feb|Mar|Apr|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec','1|2|3|4|5|6|7|8|9|10'], :size => "540x200", :title => "Average score per week for #{@writer.name}")}
   =cleardiv
 
 %table.norm
