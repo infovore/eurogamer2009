@@ -20,4 +20,20 @@ class Review < ActiveRecord::Base
   def week
     written_on.strftime('%W').to_f.to_i
   end
+  
+  def self.reviews_by_week
+    find(:all).group_by(&:week).sort
+  end
+  
+  def self.year_of_reviews
+    # weeks = (1..52).to_a.map {|w| [w, []]}
+    year = Hash.new
+    (1..52).each {|w| year[w] = []}
+    
+    self.reviews_by_week.each do |week, reviews|
+      week = week.to_f.to_i
+      year[week] = reviews
+    end
+    year.sort
+  end
 end

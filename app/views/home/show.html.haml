@@ -30,5 +30,7 @@
 .graphs
   .grid_6.alpha
     #score-pie
-  .grid_6.omega
-  =cleardiv
+  .grid_6.omega{:style => "padding-top: 20px"}
+    %img{:src => Gchart.line(:data => Review.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :line_colors => "207ef9", :axis_with_labels => 'x,y', :axis_labels => ['Jan|Feb|Mar|Apr|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec','1|2|3|4|5|6|7|8|9|10'], :size => "480x200", :title => "Average score per week")}
+  = cleardiv
+  
