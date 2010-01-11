@@ -2,11 +2,6 @@
   = javascript_include_tag "raphael-min", "g.raphael-min", "g.bar-min.js", "g.pie-min.js"
   :javascript
     $(document).ready(function() {
-      var paper = Raphael("review-graph", 400, 220);
-      paper.g.barchart(0,0, 400, 220, [[#{@writer.year_of_reviews.map {|week, reviews| (reviews.map {|r| r.score.to_i}.sum.to_f / (reviews.size > 0 ? reviews.size : 1)).to_f}.join(",")}]], 0, {type: "sharp"});
-      paper.g.axis(0,200,400,1,52,52,null,null,null,0)
-    
-    
       var pies = new Array();
       
       var paper = Raphael("score-pie", 400, 220);
@@ -57,12 +52,11 @@
     %td.last= "%0.3f" % @writer.generosity
 
 .graphs
-  .grid_6.alpha
+  .grid_5.alpha
     #score-pie
-  .grid_6.omega
-    #review-graph
-
-=cleardiv
+  .grid_7.omega{:style => "padding-top: 20px"}
+    %img{:src => Gchart.line(:data => @writer.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :line_colors => "207ef9", :axis_with_labels => 'x', :axis_labels => ['Jan|Feb|Mar|Apr|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec','1|2|3|4|5|6|7|8|9|10'], :size => "540x200")}
+  =cleardiv
 
 %table.norm
   %thead
