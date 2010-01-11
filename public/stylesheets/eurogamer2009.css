@@ -122,6 +122,7 @@ table.writer {
   font-weight: normal;
   text-transform: uppercase; 
   margin: 10px 0;
+  width: 100%;
 }
 
 table.writer th {

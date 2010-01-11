@@ -1,0 +1,34 @@
+- content_for :javascript do
+  = javascript_include_tag "raphael-min", "g.raphael-min", "g.bar-min.js", "g.pie-min.js"
+  :javascript
+    $(document).ready(function() {
+      var pies = new Array();
+      
+      var paper = Raphael("score-pie", 480, 450);
+      var pie = paper.g.piechart(150,150, 150, [#{@score_distribution.map {|s,c| c.to_i}.join(",")}], {legend: ['#{@score_distribution.map {|s,c| c.to_s + ' games scoring ' + s.to_s}.join("','")}']});
+      pies.push(pie);
+    });
+
+
+%table.writer
+  %tr
+    %th.writer{:rowspan => 2}
+      Eurogamer 2009
+    %th Reviews
+    %th Writers
+    %th Average score
+    %th Minimum score
+    %th.last Maximum score
+  %tr
+    %td= Review.count(:all)
+    %td= Writer.count(:all)
+    %td.score= "%0.3f" % Review.average(:score)
+    %td.score= Review.minimum(:score)
+    %td.score.last= Review.maximum(:score)
+
+
+.graphs
+  .grid_6.alpha
+    #score-pie
+  .grid_6.omega
+  =cleardiv
