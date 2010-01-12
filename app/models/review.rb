@@ -36,4 +36,8 @@ class Review < ActiveRecord::Base
     end
     year.sort
   end
+  
+  def metacritic_delta
+    (@score * 10) - metacritic_score rescue 0
+  end
 end

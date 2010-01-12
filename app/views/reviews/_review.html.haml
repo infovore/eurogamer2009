@@ -6,4 +6,8 @@
   %td.center= review.platform
   %td= link_to review.writer.name, writer_path(review.writer)
   - if review.score
-    %td.last.score= link_to review.score, "/scores/#{review.score}"
+    %td.score= link_to review.score, "/scores/#{review.score}"
+  - if @review.metacritic_score
+    %td.last= positive_symbol(@review.metacritic_delta) + @review.metacritic_delta.to_s + "%"
+  - else
+    %td.last -
