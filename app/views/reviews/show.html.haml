@@ -1,7 +1,7 @@
 %table.writer
   %tr
     %th.writer{:rowspan => 2}
-      %h2= @review.title
+      %h2= link_to @review.title, @review.url
     %th Reviewed By
     %th Score
     %th Compared to EG average
@@ -19,10 +19,5 @@
     - else
       %td -
       %td.last -
-
-
-
-%p= link_to "Read the review on Eurogamer.net", @review.url
-
 
 %p= link_to "Back to all reviews", reviews_path
