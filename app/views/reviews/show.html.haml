@@ -17,6 +17,10 @@
 
 %p= link_to "Read the review on Eurogamer.net", @review.url
 
-%p TODO: compare to metacritic
+
+- if @review.metacritic_url
+  %p
+    %b Metacritic:
+    - link_to @review.metacritic_url, metacritic_url
 
 %p= link_to "Back to all reviews", reviews_path
