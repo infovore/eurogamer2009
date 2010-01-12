@@ -15,7 +15,7 @@
     %td= positive_symbol(@writer_delta) + "%0.3f" % @writer_delta
     - if @review.metacritic_score
       %td= link_to @review.metacritic_score, @review.metacritic_url
-      %td.last= positive_symbol(@metacritic_delta) + @metacritic_delta.to_s
+      %td.last= positive_symbol(@metacritic_delta) + @metacritic_delta.to_s + "%"
     - else
       %td -
       %td.last -
