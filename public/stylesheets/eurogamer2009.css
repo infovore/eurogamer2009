@@ -69,7 +69,7 @@ td.big {
   font-size: 150%;
 }
 
-h2 {
+h1, h2 {
   font-family: "league-gothic-1","league-gothic-2",sans-serif;
   font-weight: normal;
   text-transform: uppercase;
@@ -225,4 +225,27 @@ input.score {
 
 div.graphs {
   margin: 0 0 30px;
+}
+
+#footer-container {
+  background: #207ef9;
+  color: white;
+}
+
+#footer-container p {
+  margin: 0;
+}
+
+#footer-container .footer-inner {
+  width: 920px;
+  margin: 0 auto;
+  padding: 5px 20px;
+}
+
+#footer-container a:link, #footer-container a:visited {
+  color: white;
+}
+
+#footer-container a:hover {
+  color: red;
 }

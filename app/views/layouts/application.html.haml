@@ -25,3 +25,16 @@
     .container_12
       .grid_12
         = yield
+        = cleardiv
+      = cleardiv
+    #footer-container
+      .footer-inner
+        %p
+          = link_to "Code", "http://github.com/infovore/eurogamer2009"
+          &copy;
+          = link_to "Tom Armitage", "http://infovore.org"
+          2010.
+          Not in any way affiliated or connected with
+          = link_to "Eurogamer.", "http://eurogamer.net"
+          = link_to "Find out more.", about_pages_path
+          = render "/layouts/analytics"
