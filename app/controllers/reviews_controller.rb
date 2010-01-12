@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   end
   
   def update
-    @review = Review.find(params[:id])
+    @review = Review.find(:first, :conditions => {:slug => params["id"]})
     @review.score = params[:review][:score]
     @review.save
     redirect_to unscored_reviews_path
