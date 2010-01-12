@@ -5,14 +5,17 @@
     %th Reviewed By
     %th Score
     %th Compared to EG average
-    %th Compared to Metacritic
-    %th.last Compared to writer's average
+    %th Compared to writer's average
+    %th Metacritic score
+    %th.last Compared to Metacritic
   %tr
     %td= link_to @review.writer.name, writer_path(@review.writer)
     %td.score= link_to @review.score, "/scores/#{@review.score}"
-    %td= @review.score - Review.average(:score)
+    %td= "%0.3f" % @review.score - Review.average(:score)
+    %td= "%0.3f" % @review.score - @review.writer.average_score
     %td= link_to @review.metacritic_score, @review.metacritic_url
-    %td.last= @review.score - @review.writer.average_score
+    %td.last= "%0.3f" % (@review.score * 10) - @review.metacritic_score
+
 
 
 %p= link_to "Read the review on Eurogamer.net", @review.url
