@@ -1,3 +1,4 @@
+STDOUT.sync = true
 require 'open-uri'
 require 'nokogiri'
 
@@ -65,6 +66,22 @@ namespace :eurogamer do
     Review.all.each do |review|
       review.slug = review.to_slug
       review.save
+      print "."
+    end
+  end
+  
+  desc "Get Metacritic urls"
+  task :get_metacritic_urls => :environment do
+    Review.all.each do |review|
+      querystring = CGI::escape("#{review.title.downcase} #{review.platform}")
+      url = "http://www.metacritic.com/search/process?sb=0&tfs=all&ts=#{querystring}&ty=3&x=0&y=0"
+      # puts url
+      doc = Nokogiri::HTML(open(url))
+      links = doc.css("a").select {|link| link.attribute("href").value =~ /.*platform.*/ if link.attribute("href")}
+      if links.any?
+        review.metacritic_url = links.first.attribute("href").value
+        review.save
+      end
       print "."
     end
   end
