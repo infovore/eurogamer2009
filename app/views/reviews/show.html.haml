@@ -11,11 +11,11 @@
   %tr
     %td= link_to @review.writer.name, writer_path(@review.writer)
     %td.score= link_to @review.score, "/scores/#{@review.score}"
-    %td= "%0.3f" % (@review.score.to_f - Review.average(:score))
-    %td= "%0.3f" % (@review.score.to_f - @review.writer.average_score)
+    %td= positive_symbol(@eg_delta) + "%0.3f" % @eg_delta
+    %td= positive_symbol(@writer_delta) + "%0.3f" % @writer_delta
     - if @review.metacritic_score
       %td= link_to @review.metacritic_score, @review.metacritic_url
-      %td.last= (@review.score * 10) - @review.metacritic_score
+      %td.last= positive_symbol(@metacritic_delta) + @metacritic_delta.to_s
     - else
       %td -
       %td.last -

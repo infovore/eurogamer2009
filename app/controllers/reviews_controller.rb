@@ -5,6 +5,9 @@ class ReviewsController < ApplicationController
   
   def show
     @review = Review.find(:first, :conditions => {:slug => params[:id]})
+    @eg_delta = @review.score.to_f - Review.average(:score)
+    @writer_delta = @review.score.to_f - @review.writer.average_score
+    @metacritic_delta = (@review.score * 10) - @review.metacritic_score rescue 0
   end
   
   

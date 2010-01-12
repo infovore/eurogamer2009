@@ -8,4 +8,8 @@ module ApplicationHelper
     date.strftime("%d %B %Y")
   end
   
+  def positive_symbol(number)
+    number.to_f > 0 ? "+" : ""
+  end
+  
 end
