@@ -11,16 +11,11 @@
     %td= link_to @review.writer.name, writer_path(@review.writer)
     %td.score= link_to @review.score, "/scores/#{@review.score}"
     %td= @review.score - Review.average(:score)
-    %td xx
+    %td= link_to @review.metacritic_score, @review.metacritic_url
     %td.last= @review.score - @review.writer.average_score
 
 
 %p= link_to "Read the review on Eurogamer.net", @review.url
 
-
-- if @review.metacritic_url
-  %p
-    %b Metacritic:
-    = link_to @review.metacritic_url, @review.metacritic_url
 
 %p= link_to "Back to all reviews", reviews_path
