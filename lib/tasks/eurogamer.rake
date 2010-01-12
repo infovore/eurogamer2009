@@ -87,4 +87,17 @@ namespace :eurogamer do
       end
     end
   end
+  
+  desc "Get Metacritic scores"
+  task :get_metacritic_scores => :environment do
+    Review.all.each do |review|
+      if review.metacritic_url
+        doc = Nokogiri::HTML(open(URI.encode(review.metacritic_url)))
+        score = doc.css("#metascore").text
+        review.metacritic_score = score
+        review.save
+        print "."
+      end
+    end
+  end
 end
