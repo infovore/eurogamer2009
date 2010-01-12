@@ -21,6 +21,6 @@
 - if @review.metacritic_url
   %p
     %b Metacritic:
-    - link_to @review.metacritic_url, @review.metacritic_url
+    = link_to @review.metacritic_url, @review.metacritic_url
 
 %p= link_to "Back to all reviews", reviews_path

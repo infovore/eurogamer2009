@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+    @reviews = Review.find(:all, :order => {"written_on DESC"})
   end
   
   def show
