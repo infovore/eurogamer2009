@@ -37,6 +37,15 @@ table.norm td.score {
   color: #207ef9;
 }
 
+table.norm td.black {
+  text-align: center;
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 150%;
+}
+
+
 table.norm td.contribution {
   text-align: center;
   font-family: "league-gothic-1","league-gothic-2",sans-serif;

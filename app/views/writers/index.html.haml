@@ -20,7 +20,7 @@
         %td
           = link_to writer.name, writer_path(writer)
           %img{:src => Gchart.sparkline(:data => writer.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :size => '100x10', :line_colors => '207ef9')}
-        %td= writer.reviews.size
+        %td.black= writer.reviews.size
         %td.score= writer.min_score
         %td.score= writer.max_score
         %td.score= positive_symbol(writer.average_score) + "%0.3f" % writer.average_score rescue ""
