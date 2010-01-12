@@ -13,8 +13,12 @@
     %td.score= link_to @review.score, "/scores/#{@review.score}"
     %td= "%0.3f" % (@review.score.to_f - Review.average(:score))
     %td= "%0.3f" % (@review.score.to_f - @review.writer.average_score)
-    %td= link_to @review.metacritic_score, @review.metacritic_url
-    %td.last= (@review.score.to_f * 10) - @review.metacritic_score
+    - if @review.metacritic_score
+      %td= link_to @review.metacritic_score, @review.metacritic_url
+      %td.last= (@review.score.to_f * 10) - @review.metacritic_score
+    - else
+      %td -
+      %td.last -
 
 
 
