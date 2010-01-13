@@ -33,7 +33,7 @@ class Writer < ActiveRecord::Base
     average_score - Review.average(:score)
   end
   
-  def generosity
+  def influence
     deviance * contribution_percentage
   end
   
