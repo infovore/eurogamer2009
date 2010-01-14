@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.find(:all, :order => "written_on DESC")
+    @score_distribution = Review.count(:all, :group => "score")
   end
   
   def show

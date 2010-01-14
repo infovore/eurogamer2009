@@ -1,7 +1,55 @@
-- content_for :title do
-  Reviews : 
+- content_for :javascript do
+  = javascript_include_tag "raphael-min", "g.raphael-min", "g.bar-min.js", "g.pie-min.js"
+  :javascript
+    $(document).ready(function() {
+      var pies = new Array();
+      
+      var paper = Raphael("score-pie", 480, 300);
+      var pie = paper.g.piechart(150,150, 130, [#{@score_distribution.map {|s,c| c.to_i}.join(",")}], {legend: ['#{@score_distribution.map {|s,c| c.to_s + ' games scoring ' + s.to_s}.join("','")}']});
+      pies.push(pie);
+      
+      for(i=0;i<pies.length;i++) {
+        pies[i].hover(function () {
+          this.sector.stop();
+          this.sector.scale(1.1, 1.1, this.cx, this.cy);
+          if (this.label) {
+            this.label[0].stop();
+            this.label[0].scale(1.5);
+            this.label[1].attr({"font-weight": 800});
+          }
+        }, function () {
+          this.sector.animate({scale: [1, 1, this.cx, this.cy]}, 500, "bounce");
+          if (this.label) {
+            this.label[0].animate({scale: 1}, 500, "bounce");
+            this.label[1].attr({"font-weight": 400});
+          }
+        });
+      }
+    });
 
-%h2 Reviews
+%table.writer
+  %tr
+    %th.writer{:rowspan => 2}
+      Eurogamer 2009
+    %th Reviews
+    %th Writers
+    %th Average score
+    %th Minimum score
+    %th.last Maximum score
+  %tr
+    %td= Review.count(:all)
+    %td= Writer.count(:all)
+    %td.score= "%0.3f" % Review.average(:score)
+    %td.score= Review.minimum(:score)
+    %td.score.last= Review.maximum(:score)
+
+
+.graphs
+  .grid_6.alpha
+    #score-pie
+  .grid_6.omega{:style => "padding-top: 20px"}
+    %img{:src => Gchart.line(:data => Review.year_of_reviews.map {|week, reviews| reviews.map {|r| r.score || 0}.sum / (reviews.size > 0 ? reviews.size : 1)}, :line_colors => "207ef9", :axis_with_labels => 'x,y', :axis_labels => ['Jan|Feb|Mar|Apr|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec','1|2|3|4|5|6|7|8|9|10'], :size => "480x200", :title => "Average score per week")}
+  = cleardiv
 
 %table.norm
   %thead
