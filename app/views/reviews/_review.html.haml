@@ -5,8 +5,11 @@
     = "[<i>#{link_to ("read EG review", review.url)}</i>]"
   %td.center= review.platform
   %td= link_to review.writer.name, writer_path(review.writer)
-  - if review.score
-    %td.score= link_to review.score, "/scores/#{review.score}"
+  %td.score
+    - if review.score
+      = link_to review.score, "/scores/#{review.score}"
+    - else
+      &nbsp;
   - if review.metacritic_score
     %td.black.last= positive_symbol(review.metacritic_delta) + review.metacritic_delta.to_s + "%"
   - else
