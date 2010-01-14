@@ -3,6 +3,47 @@
 
 %h1 About the Eurogamer 2009 Scores Analysis
 
+%p
+  I saw the 
+  = link_to "last.fm Best of 2009 wrap-up,", "http://www.last.fm/bestof/2009/chart"
+  and
+  = link_to "this analysis of Pitchfork's scoring over 2009,", "http://theriffage.blogspot.com/2009/12/p4k-in-2k9.html"
+  and thought: somebody really ought to do that for 
+  = link_to "Eurogamer.", "http://eurogamer.net"
+  
+%p
+  Gamers love bitching about review scores. They
+  %i especially
+  love bitching about EG's scores. So wouldn't it be interesting to try to pick out some trends, and see what was really going on?
+  
+%p 
+  That's what this site does. It takes a year's worth of data and munges it in a few different directions. You can check out the
+  = link_to "page for a review", "/reviews/reflect-missile"
+  to see how the game scored compared not only to the site average, but also to that reviewer's average, and also to
+  = link_to "Metacritic.", "http://metacritic.com"
+  You can check out the page for
+  = link_to "a writer", "/writers/simon-parkin"
+  to see what that writer's reviewed, what the distribution of their scores is, what their average score per-week was, how much they've contributed to the site, and what influence they have on the overall average of EG.
+  You can even check out a page for an
+  = link_to "individual score", "/scores/9"
+  if you want to see what games got a particular score that year.
+  
+%p And then you can make of it what you will. They're just numbers, and they don't tell the whole story.
+
+%a{:name => "influence"}
+%h2 A note on "Influence"
+
+%p It took me a while to work "Influence" out. You see, writer's averages aren't very exciting; a writer with one review, scoring 4, has a wildly low average - far below the site average. However, in the scheme of things, they're not contributing very much to the overall points total of the year. So you shouldn't think of them as being that negative, really; they're a tiny blip of negativity. By contrast, a writer who's written many, many reviews, and has an average below that of the site... is probably bringing the average of the site down quite a bit.
+
+%p 
+  Hence "Influence". Influence is calculated as 
+  %b Average x Contribution.
+  It doesn't have any units - it's only meant as a relative figure, to compare one writer to another. By multiplying a writer's average score by their contribution to the site (percentage scaled up by 100 to a nice big number), you get a vaguely useful relative figure out, that indicates the impact some writers have. So Kieron, for instance, didn't review many games, but was so consist in his lower-than-average scores that he had a reasonably negative influence.
+
+%p At one point, this score was called "Generosity", but that's unfair to writers with a negative value for it. Ellie has a very negative Influence score, mainly because she reviews lots of rubbish games quite fairly - not because she's stingy. So to suggest she's un-generous is unfair. Hence Influence: she influences the site's average score dramatically, but we're not disrespecting the reviewer with our language.
+
+  
+
 %h2 Colophon
 
 %p
