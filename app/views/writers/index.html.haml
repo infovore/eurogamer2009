@@ -26,5 +26,5 @@
         %td.score= positive_symbol(writer.average_score) + "%0.3f" % writer.average_score rescue ""
         %td.contribution= positive_symbol(writer.deviance) + "%0.3f" % writer.deviance rescue ""
         %td.contribution= "%0.1f" % writer.contribution_percentage rescue ""
-        %td.score.last= positive_symbol(writer.influence) + "%0.1f∑" % writer.influence rescue ""
+        %td.score.last= positive_symbol(writer.influence) + "%0.1f" % writer.influence rescue ""
         
