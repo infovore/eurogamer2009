@@ -4,5 +4,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :scores
   map.resources :pages, :collection => {:about => :get}
   
+  map.about 'about', :controller => "pages", :action => "about"
   map.root :controller => "reviews"
 end

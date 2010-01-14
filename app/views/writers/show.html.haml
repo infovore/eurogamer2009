@@ -50,6 +50,21 @@
     %td= positive_symbol(@writer.deviance) + "%0.3f" % @writer.deviance
     %td= "%0.1f" % @writer.contribution_percentage
     %td.last= positive_symbol(@writer.influence) + "%0.3f" % @writer.influence
+    
+%p.explanation-link= link_to "What do all these figures mean?", "#"
+.explanation
+  %p
+    %b Deviance
+    is the difference between the average for all of Eurogamer and this writer.
+  %p
+    %b Contribution 
+    is the percentage of all reviews in 2009 that this writer contributed.
+  %p
+    %b Influence
+    is 
+    %b Contribution x Deviance,
+    and serves as a rough, unit-less measurement of how much impact on the overall average this writer had.
+
 
 .graphs
   .grid_5.alpha

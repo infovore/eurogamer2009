@@ -258,3 +258,13 @@ div.graphs {
 #footer-container a:hover {
   color: red;
 }
+
+p.explanation-link {
+  text-align: right;
+}
+
+.explanation {
+  border: 2px solid #888;
+  background: #eee;
+  padding: 5px;
+}

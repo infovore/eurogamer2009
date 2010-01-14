@@ -7,8 +7,8 @@
     %meta{ :charset => "utf-8" }
     = stylesheet_link_tag 'reset', 'text', '960', 'eurogamer2009'
     = javascript_include_tag "http://use.typekit.com/nhi0bgm.js"
-    = javascript_include_tag 'application'
     = javascript_include_tag 'jquery-1.3.2.min'
+    = javascript_include_tag 'application'
     = yield :javascript
   %body
     .top
@@ -36,5 +36,5 @@
           2010.
           Not in any way affiliated or connected with
           = link_to "Eurogamer.", "http://eurogamer.net"
-          = link_to "Find out more.", about_pages_path
+          = link_to "Find out more.", about_path
           = render "/layouts/analytics"
